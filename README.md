@@ -5,6 +5,7 @@ Introduction
 ===================
 
 ***What is UPnP Technology?***
+  
 UPnPはPC端末や無線端末、その他IT製品に対して様々なP2P接続性を確保する技術です。
   
 UPnPはアドホックネットワークや管理されないネットワーク
