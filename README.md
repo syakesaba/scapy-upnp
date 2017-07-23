@@ -18,8 +18,8 @@ UPnPはコントロール通信・データ通信にてTCP/IPやWeb技術を使�
   
 UPnP Device Architecture (UDA) はプラグ&プレイの最もシンプルなモデルです。
   
-UDAは"見えないネットワーキング"と
-ベンダによる多岐に渡る"デバイスカテゴリ"のデバイス探索機能により
+UDAは見えないネットワーキングと
+ベンダによる多岐に渡るデバイスカテゴリのデバイス探索機能により
 ”Zero Configuration”のサポートを目指します。
   
 UDAではデバイスが動的にネットワークにjoin、
@@ -42,7 +42,7 @@ UPnPのアーキテクチャはそのような環境をカバーできるよう�
 さらにはブリッジングを使用することにより経済的にor技術的にor古くから
 TCP/IPスタックを使って居ないデバイスもカバーできます。
   
-UPnPにおける"ユニバーサル"とは”デバイスドライバレス”という意味であり
+UPnPにおけるユニバーサルとは”デバイスドライバレス”という意味であり
 デバイスドライバの代わりに一般的なプロトコルを使用します。
   
 UPnPネットワーキングはデバイスの仕様とは独立した実装です。
@@ -59,7 +59,7 @@ UPnP Forumは機種間相互接続性の推進のためXMLベースのデバイ�
 UPnP Forumはデバイス間の相互接続性を一様に検証しそれを認証することを推進するため
 複数の産業にまたがる企業によって構成されています。
   
-UPnP Forumは"UPnP Logo Program"によりデバイス検証し認証するプロセスを司り
+UPnP ForumはUPnP Logo Programによりデバイス検証し認証するプロセスを司り
 UPnP対応の保証をその他のUPnPデバイスのベンダに周知します。
   
 UPnPデバイス認証のプロセスはベンダの開発者にも、会費を支払っているメンバーにもオープンであり
@@ -71,7 +71,7 @@ UPnP Forumは各方面の専門分野にワーキングコミッティをおい�
 適切なテストスイートを作成したりします。
   
 このドキュメントではそれらのワーキングコミッティ分野における技術的な見地について示します。
-UPnPベンダは"UPnP Logo Program"によってその技術的な適合性を発信することにより
+UPnPベンダはUPnP Logo Programによってその技術的な適合性を発信することにより
 相互接続性に対する信頼を得ることができます。
 *このLogo Programに関わらず、ベンダはUDAに沿って
 形式張った標準的な認証申請なしにデバイスを開発することも可能です。
@@ -82,14 +82,14 @@ UPnPベンダは"UPnP Logo Program"によってその技術的な適合性を発
   
 UPnPデバイスアーキテクチャ（aka. DCPフレームワーク） はControllerまたは
 ControlPointまたはデバイスによってお互いに通信されます。
-"Discovery","Description","Control","Eventing","Presentation"のため
+Discovery,Description,Control,Eventing,Presentationのため
 UDAは以下の通りのプロトコルスタックを使用しています。
   
 <Fig.1 TODO: 画像をはる>
   
-最も上位のレイヤ"UPnP Vendor"はデバイスのベンダ依存情報のみ含まれています。
-その下位レイヤ"UPnP Forum"はベンダ情報を補完するための情報が含まれます。
-これらの情報は"SSDP","GENA",マルチキャストイベントプロトコル,その他文書化された
+最も上位のレイヤUPnP Vendorはデバイスのベンダ依存情報のみ含まれています。
+その下位レイヤUPnP Forumはベンダ情報を補完するための情報が含まれます。
+これらの情報はSSDP,GENA,マルチキャストイベントプロトコル,その他文書化された
 UPnPのプロトコルによって伝送されます。
   
 SSDPはユニキャストまたはマルチキャストUDPによって伝送されます。
@@ -100,24 +100,24 @@ GENAはHTTPによって伝送されます。
 どういうメッセージで利用されているか、ということです。
   
 UPnPアーキテクチャには二つの大きな分類があります。
-それは"Controlled Devices(＝デバイス)"と"Control Points"です。
-"Controlled Device"はサーバとしての役割を果たし
-"Control Points"からのリクエストに対してレスポンスを返します。
+それはControlled Devices(＝デバイス)とControl Pointsです。
+Controlled Deviceはサーバとしての役割を果たし
+Control Pointsからのリクエストに対してレスポンスを返します。
   
-"Controlled Devices"と"Control Points"は様々なプラットフォーム
+Controlled DevicesとControl Pointsは様々なプラットフォーム
 （パソコン、組み込み端末）にて実装することができ
 同じネットワークエンドポイントにおいて同時並行的に動作することが可能です。
 ※このドキュメントはIPv4の世界に限定しています。IPv6は別途考慮が必要です。  
   
-UPnPの基本はIPアドレッシングです。IPv4環境においては"Controlled Devices","Control Points"は
+UPnPの基本はIPアドレッシングです。IPv4環境においてはControlled Devices,Control Pointsは
 DHCPクライアント機能を持っており、ネットワークへの初回接続時にはDHCPサーバを探索します。
   
 もしDHCPサーバが提供されている（＝管理されたネットワーク）場合は
-"Control Point"はDHCPにより払い出されたIPアドレスを使うことになります。
+Control PointはDHCPにより払い出されたIPアドレスを使うことになります。
 もしDHCPサーバが提供されていいな（＝管理されていないネットワーク）場合は
-"Control Point"は"Auto IP"を使うことになります。
+Control PointはAuto IPを使うことになります。
   
-"Auto IP"は予約アドレスの中から"Controlled Devices""Control Points"が
+Auto IPは予約アドレスの中からControlled DevicesControl Pointsが
 アドレスを選択し、DHCPがある環境・ない環境どちらの場合もシームレスな動作をするように
 実装が定義されています。
   
@@ -131,14 +131,50 @@ DomainNameが取得されない場合はAuto IPまたはDHCPで配布されたIP
 UPnPデバイスは複数のネットワークインターフェイスを持ち得ます。
 また、一つのインターフェースにつき2個以上のIPアドレスを持ち得ます。
 そのような構成の場合は同じUPnPネットワークに一つのUPnPデバイスが複数のIPアドレスを
-持っている状態となり、ネットワーク上に複数回"Control Point"として表示される可能性があります。
-そのような状態の場合それらのデバイスは"マルチホーム"となります。
-本ドキュメントにおいて"UPnP-enabled interface"とはUPnP networkに所属する
+持っている状態となり、ネットワーク上に複数回Control Pointとして表示される可能性があります。
+そのような状態の場合それらのデバイスはマルチホームとなります。
+本ドキュメントにおいてUPnP-enabled interfaceとはUPnP networkに所属する
 IPアドレスがアサインされたインターフェースのことをさします。
-"マルチホーム"なUPnPデバイスについては本ドキュメントにおいてはカバーされます。
+マルチホームなUPnPデバイスについては本ドキュメントにおいてはカバーされます。
 しかし、一般原則として、UPnPの通信はincomingのインターフェースが
 イコールoutgoingのインターフェースとなります。
   
+今、UPnPデバイスに対してIPアドレスが付与されたと仮定します。
+  
+UPnPネットワーキングのStep1はDiscoveryです。
+  
+デバイスがネットワークに追加された際、UPnP Discoveryプロトコルはデバイスに対して
+Control Pointを広告することをします。同様に、Control Pointがネットワークに
+追加された場合はUPnP DiscoveryプロトコルはControl Pointにネットワークの探索をさせます。
+どちらの場合も情報交換内容は通信に不可欠な情報と少々のデバイス機能についてのみです。
+(e.g. デバイスタイプID, より深いデバイス情報へのポインタ情報)
+後述のDiscoveryセクションではいかにしてデバイスが広告をするのか、
+いかにしてControl Pointは探索をするのか、DiscoveryMessageのフォーマットの詳細について示します。
+  
+UPnPネットワーキングのStep2はDescriptionです。
+  
+Control Pointがデバイスを探索し発見した時点では、Control Pointはデバイスに関して
+非常に小さな情報しか持ち得ません。Control Pointがデバイスの各種機能に関して
+詳細な情報を入手するorデバイスと通信を開始するにあたり、Control Pointはデバイスからの
+Discovery Messageに含まれて居たURLからデバイスのDescriptionを入手しようとします。
+デバイスの中には論理的な複数のデバイスが存在するかもしれません。
+それと同等の複数の機能ユニットやサービス単位を持っているかもしれません。
+デバイスのUPnP DescriptionはXMLの中に記述されており、そこには
+型番・シリアル番号・製造者名やベンダのホームページのURLなどのベンダ固有の情報が含まれます。
+  
+UPnP Descriptionにはそのデバイスに埋め込まれた論理デバイスやサービスのリスト情報が含まれます。
+（大抵の場合これはControl,Eventing,Presentation用のURLである）
+  
+サービスそれぞれに対して、Descriptionはサービスを返すための
+コマンドやアクションと引数・パラメタのリストが含まれています。
+Descriptionの中にはサービスのステート情報などの変数のリストも含まれます。
+そこにはデータタイプやデータレンジ、イベントシグナルがサービス固有の表現でなされています。
+後述のDiscoveryセクションではいかにしてデバイスがDescriptionの表現をするのかと
+Control PointはいかにしてそれらのDescription情報を取得するのかということを述べます。
+  
+
+
+
 
 
 
