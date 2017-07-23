@@ -80,12 +80,12 @@ UPnPベンダは"UPnP Logo Program"によってその技術的な適合性を発
     
 ***In this document***
   
-UPnPデバイスアーキテクチャ（aka DCPフレームワーク） はControllerまたは
+UPnPデバイスアーキテクチャ（aka. DCPフレームワーク） はControllerまたは
 ControlPointまたはデバイスによってお互いに通信されます。
 "Discovery","Description","Control","Eventing","Presentation"のため
 UDAは以下の通りのプロトコルスタックを使用しています。
   
-<Fig.1>
+<Fig.1 TODO: 画像をはる>
   
 最も上位のレイヤ"UPnP Vendor"はデバイスのベンダ依存情報のみ含まれています。
 その下位レイヤ"UPnP Forum"はベンダ情報を補完するための情報が含まれます。
@@ -98,6 +98,21 @@ GENAはHTTPによって伝送されます。
 結局のところ、これらのメッセージはすべてIPプロトコルの上に成り立ちます。
 残すところ、このドキュメントが示すのはこれらのプロトコルがどういうフォーマットで
 どういうメッセージで利用されているか、ということです。
+  
+UPnPアーキテクチャには二つの大きな分類があります。
+それは"Controlled Devices(aka. 'devices')"と"Control Points"です。
+"Controlled Device"はサーバとしての役割を果たし
+"Control Points"からのリクエストに対してレスポンスを返します。
+  
+"Controlled Devices"と"Control Points"は様々なプラットフォーム
+（パソコン、組み込み端末）にて実装することができ
+同じネットワークエンドポイントにおいて同時並行的に動作することが可能です。
+※このドキュメントはIPv4の世界に限定しています。IPv6は別途考慮が必要です。  
+  
+UPnPの基本はIPアドレッシングです。
+IPv4環境においてはそれぞれの"Control Point"はDHCPクライアント機能を持っており、
+ネットワークへの初回接続時にはDHCPサーバを探索します。
+  
 
 
 
