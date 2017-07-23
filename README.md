@@ -100,7 +100,7 @@ GENAはHTTPによって伝送されます。
 どういうメッセージで利用されているか、ということです。
   
 UPnPアーキテクチャには二つの大きな分類があります。
-それは"Controlled Devices(aka. 'devices')"と"Control Points"です。
+それは"Controlled Devices(＝デバイス)"と"Control Points"です。
 "Controlled Device"はサーバとしての役割を果たし
 "Control Points"からのリクエストに対してレスポンスを返します。
   
@@ -109,12 +109,18 @@ UPnPアーキテクチャには二つの大きな分類があります。
 同じネットワークエンドポイントにおいて同時並行的に動作することが可能です。
 ※このドキュメントはIPv4の世界に限定しています。IPv6は別途考慮が必要です。  
   
-UPnPの基本はIPアドレッシングです。
-IPv4環境においてはそれぞれの"Control Point"はDHCPクライアント機能を持っており、
-ネットワークへの初回接続時にはDHCPサーバを探索します。
+UPnPの基本はIPアドレッシングです。IPv4環境においては"Controlled Devices","Control Points"は
+DHCPクライアント機能を持っており、ネットワークへの初回接続時にはDHCPサーバを探索します。
   
-
-
+もしDHCPサーバが提供されている（＝管理されたネットワーク）場合は
+"Control Point"はDHCPにより払い出されたIPアドレスを使うことになります。
+もしDHCPサーバが提供されていいな（＝管理されていないネットワーク）場合は
+"Control Point"は"Auto IP"を使うことになります。
+  
+"Auto IP"は予約アドレスの中から"Controlled Devices""Control Points"が
+アドレスを選択し、DHCPがある環境・ない環境どちらの場合もシームレスな動作をするように
+実装が定義されています。
+  
 
 
 
