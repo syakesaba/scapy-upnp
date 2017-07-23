@@ -1,5 +1,6 @@
 UPnP Device Architecture 2.0
 ===================
+原文: [http://upnp.org/specs/arch/UPnP-arch-DeviceArchitecture-v2.0.pdf](http://upnp.org/specs/arch/UPnP-arch-DeviceArchitecture-v2.0.pdf)
 
 Introduction
 ===================
