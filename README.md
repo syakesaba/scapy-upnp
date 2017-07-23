@@ -1,4 +1,4 @@
-P Device Architecture 2.0
+UPnP Device Architecture 2.0
 ===================
 
 Introduction
@@ -77,7 +77,7 @@ UPnPベンダは"UPnP Logo Program"によってその技術的な適合性を発
 もしベンダが非公式でUPnPデバイスを開発した場合はワーキングコミッティのやり方とは
 違った方式で技術的な実装をしていることになります。*
     
-***In thin document***
+***In this document***
   
 UPnPデバイスアーキテクチャ（aka DCPフレームワーク） はControllerまたは
 ControlPointまたはデバイスによってお互いに通信されます。
