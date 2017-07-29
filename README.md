@@ -229,7 +229,7 @@ ControlPointはページの内容を取得できます。
   
 ***Conformance Terminology***
   
-本文書では、用語を以下のように定義します。
+本文書では、実装基準を以下のように定義します。
   
 Required (or shall or mandatory).
   
@@ -255,11 +255,11 @@ UDAにおいて仕様上記載のあった機能であっても今後は後方�
 この実装をしたところで現在・今後の実装に対してエラーなど何かしらの影響はありません。
 仕様上の問題で後方互換性が必要になるケースがありますが、その仕様も今後実装すべきではありません。
   
-略語
-  
+**略語**
+ 
 <TODO: Table1 - Acronymsの画像を貼る。でもだいたいわかるし・・・>
   
-用語
+**用語**
   
 - action
   
@@ -282,6 +282,36 @@ control pointはデバイス・サービスのDescriptionを取得しactionを�
 デバイスはネットワークに対して自身の存在を広告します。
 詳細は"Discovery"と"Description"の章を参照してください。
   
+- device description
+  
+UPnP Template Languageで表現された論理デバイスの詳細な定義情報です。XMLで表現されます。
+UPNP Device Templateに基づきUPnPベンダによって記述されます。
+情報としては製造者識別子、品番、シリアル番号、URL (Control URL, Eventing URL, Presentation URL)が含まれます。
+詳細は"Description"の章を参照してください。
+
+- device type
+  
+UPnP Forum working Committeeによりアサインされた標準のデバイス種別識別子が
+urn:schemas-upnp-org:device: で示されます。UPnP Device Templateと一対一対応です。
+UPnPベンダはdevice typeを拡張することができます。
+それらの拡張device typeはurn:_domain-name_:device: に続くベンダが決定した
+識別子にて示されます。_domain-name_の部分はベンダのドメイン名になります。
+詳細は"Description"の章を参照してください。
+  
+- event
+  
+サービスによって公開されたstateが一つ上の変化をした際の通知です。
+詳細は"Eventing"の章を参照してください。
+  
+- GENA
+  
+General Event Notification Architectureの略です。Eventの受信と通知に関するプロトコルセットです。
+詳細は"Eventing"の章を参照してください。
+  
+- publisher
+  
+
+
 
 
 
