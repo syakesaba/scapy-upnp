@@ -85,7 +85,7 @@ ControlPointまたはデバイスによってお互いに通信されます。
 Discovery,Description,Control,Eventing,Presentationのため
 UDAは以下の通りのプロトコルスタックを使用しています。
   
-<Fig.1 TODO: 画像をはる>
+<TODO: Fig.1の画像をはる。でも、常識。>
   
 最も上位のレイヤUPnP Vendorはデバイスのベンダ依存情報のみ含まれています。
 その下位レイヤUPnP Forumはベンダ情報を補完するための情報が含まれます。
@@ -233,11 +233,42 @@ ControlPointはページの内容を取得できます。
   
 Required (or shall or mandatory).
   
-　UDAに必要な基本的な実装です。以後、shall notやPROHIBITEDは禁止を意味します。
+UDAに必要な基本的な実装です。以後、shall notやPROHIBITEDは禁止を意味します。
   
 Recommended (or should).
   
-　さ
+UDAですべき実装です。概ね低コストで実装可能な機能的な実装です。
+もしRecommendedな機能を実装した場合はガイドラインに従った実装をしているかどうか
+認可するテストをその分実施する必要をすべきです。
+Recommended機能の一部は将来的にRequiredな機能になり得ます。
+以降、should notという表現は「実装に制限はないが非推奨を意味します。
+  
+Allowed
+  
+UDAで実装する必要も推奨されてもない実装です。
+しかし、もし実装をした場合はガイドラインに準拠していることを保証すべきです。
+Allowed機能の一部は将来的にRequiredな機能になることはありません。
+  
+DEPRECATED
+  
+UDAにおいて仕様上記載のあった機能であっても今後は後方互換性のためだけの実装です。
+この実装をしたところで現在・今後の実装に対してエラーなど何かしらの影響はありません。
+仕様上の問題で後方互換性が必要になるケースがありますが、その仕様も今後実装すべきではありません。
+  
+略語
+  
+<TODO: Table1 - Acronymsの画像を貼る。でもだいたいわかるし・・・>
+  
+用語
+  
+- action
+サービスによって公開されたコマンドのことです。一つ以上の引数・帰り値があります。
+詳細は"Desciption"と"Control"の章を参照してください。
+  
+- argument
+  
+パラメタ
+
 
 
 
