@@ -196,6 +196,27 @@ Event Messageは一つ以上のEvent変数の名前を保持しており、そ�
 全てのControl Pointで統一した状態をキープするようにEventingは設計されて居ます。
 それゆえ、全てのEvent受信者はEvent変数についてのアップデートに関してもれなくEvent Messageを受信します。
 （それがたとえリクエストしたアクションのレスポンスだろうが、サービスモデルが変わろうが。）
+マルチキャストEventingはEvent Messageを代表するものです。
+マルチキャストEventingを利用することでControlPointはサービスのアップデートを
+明示的なセッションの確立なしに受信することができるようになる。
+この方式のEventingはUPnP通信に限らず
+複数のControlPointに対して複数のユーザが存在する場合に
+不特定のユーザに対してControlPointを通知をする際に便利であり、
+そのあとで複数のデバイスはそれぞれ複数のControlPointを各々取得することができます。
+マルチキャストEventingはUDPをトランスポート層に使っているため
+根本的に信頼度は低いです。疎通確率を上げるためにマルチキャストEventing通信の
+再送制御オプションが後述されています。
+UPnP Working CommitteeはEventがマルチキャストEventかどうかを定義すべきです。
+後述のEventingセクションではユニキャストとマルチキャストの両方のEvent Messageの
+フォーマットについて述べます。
+  
+***Audience***
+  
+
+
+
+
+
 
 
 
