@@ -264,12 +264,12 @@ UDAにおいて仕様上記載のあった機能であっても今後は後方�
 - action
   
 Serviceによって公開されたコマンドのことです。一つ以上の引数・帰り値があります。
-詳細は"Desciption"と"Control"の章を参照してください。
+詳細は"Description"と"Control"の章を参照してください。
   
 - argument
   
 actionのパラメタです。
-詳細は"Desciption"と"Control"の章を参照してください。
+詳細は"Description"と"Control"の章を参照してください。
 
 - control point
   
@@ -328,10 +328,31 @@ state変数を使って物理デバイスの状態やactionを提供します。
 論理的なServiceの定義です。UPnP Template LanguageでXMLによって記述されます。
 UPnP Service Templateに基づいて、UPnPベンダによって情報は埋められます。
   
-- 
-
-
-
-
-
+- SOAP
+  
+Simple Object Access Protocolの略です。
+XMLで記述したコマンドセットをHTTPにより伝送することで実施する
+リモートプロシージャコール（RPC）の仕組みの一つです。
+詳細は"Control"の章を参照してください。
+  
+- SSDP
+  
+Simple Service Discovery Protocolの略です。
+マルチキャストによるディスカバリ・サーチメカニズムをHTTP over UDPによって可能とします。
+詳細は"Discovery"の章を参照してください。
+  
+- state variable
+  
+物理デバイスの看板です。Serviceによって公開されます。
+name, data type, default value(optional), constaints value(optional),
+その変数が変わった時に発するEvent Trigger(optional)を示します。
+詳細は"Description"と"Discovery"の章を参照してください。
+  
+- subscriber
+  
+Event Messaveの受信者です。通常はControlPointです。
+詳細は"Eventing"の章を参照してください。
+  
+- UPnP Device Template
+  
 
