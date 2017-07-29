@@ -81,7 +81,7 @@ UPnPベンダはUPnP Logo Programによってその技術的な適合性を発�
 ***In this document***
   
 UPnPデバイスアーキテクチャ（aka. DCPフレームワーク） はControllerまたは
-ControlPointまたはデバイスによってお互いに通信されます。
+ControlPointまたはDeviceによってお互いに通信されます。
 Discovery,Description,Control,Eventing,Presentationのため
 UDAは以下の通りのプロトコルスタックを使用しています。
   
@@ -132,7 +132,7 @@ UPnPデバイスは複数のネットワークインターフェイスを持ち�
 また、一つのインターフェースにつき2個以上のIPアドレスを持ち得ます。
 そのような構成の場合は同じUPnPネットワークに一つのUPnPデバイスが複数のIPアドレスを
 持っている状態となり、ネットワーク上に複数回Control Pointとして表示される可能性があります。
-そのような状態の場合それらのデバイスはマルチホームとなります。
+そのような状態の場合それらのデバイスはマルチホーム(複数NWへ所属すること)となります。
 本ドキュメントにおいてUPnP-enabled interfaceとはUPnP networkに所属する
 IPアドレスがアサインされたインターフェースのことをさします。
 マルチホームなUPnPデバイスについては本ドキュメントにおいてはカバーされます。
@@ -147,7 +147,7 @@ UPnPネットワーキングのStep1はDiscoveryです。
 Control Pointを広告することをします。同様に、Control Pointがネットワークに
 追加された場合はUPnP DiscoveryプロトコルはControl Pointにネットワークの探索をさせます。
 どちらの場合も情報交換内容は通信に不可欠な情報と少々のデバイス機能についてのみです。
-(e.g. デバイスタイプID, より深いデバイス情報へのポインタ情報)
+(e.g. Device Type ID, より深いデバイス情報へのポインタ情報)
 後述のDiscoveryセクションではいかにしてデバイスが広告をするのか、
 いかにしてControl Pointは探索をするのか、DiscoveryMessageのフォーマットの詳細について示します。
   
@@ -158,46 +158,46 @@ Control Pointがデバイスを探索し発見した時点では、Control Point
 詳細な情報を入手するorデバイスと通信を開始するにあたり、Control Pointはデバイスからの
 Discovery Messageに含まれて居たURLからデバイスのDescriptionを入手しようとします。
 デバイスの中には論理的な複数のデバイスが存在するかもしれません。
-それと同等の複数の機能ユニットやサービス単位を持っているかもしれません。
+それと同等の複数の機能ユニットやService単位を持っているかもしれません。
 デバイスのUPnP DescriptionはXMLの中に記述されており、そこには
 型番・シリアル番号・製造者名やベンダのホームページのURLなどのベンダ固有の情報が含まれます。
-UPnP Descriptionにはそのデバイスに埋め込まれた論理デバイスやサービスのリスト情報が含まれます。
+UPnP Descriptionにはそのデバイスに埋め込まれた論理デバイスやServiceのリスト情報が含まれます。
 （大抵の場合これはControl,Eventing,Presentation用のURLである）
-サービスそれぞれに対して、Descriptionはサービスを返すための
+Serviceそれぞれに対して、DescriptionはServiceを返すための
 コマンドやアクションと引数・パラメタのリストが含まれています。
-Descriptionの中にはサービスのステート情報などの変数のリストも含まれます。
-そこにはデータタイプやデータレンジ、イベントシグナルがサービス固有の表現でなされています。
+Descriptionの中にはServiceのステート情報などの変数のリストも含まれます。
+そこにはデータタイプやデータレンジ、イベントシグナルがService固有の表現でなされています。
 後述のDiscoveryセクションではいかにしてデバイスがDescriptionの表現をするのかと
 Control PointはいかにしてそれらのDescription情報を取得するのかということを述べます。
   
 UPnPネットワーキングのStep3はDescriptionです。
   
 Control PointがデバイスのDescriptionから取得された後
-Control Pointはデバイスのサービスに対してアクションを送ることができます。
+Control PointはデバイスのServiceに対してアクションを送ることができます。
 そのためにはデバイスは適切なコントロールメッセージをデバイスのDescriptionに記載の
 コントロールURLに送る必要があります。コントロールメッセージはSOAPを使用してXMLで送受信されます。
 ファンクションコールのようにコントロールメッセージのレスポンスにアクションに対応した
-返り値をサービスが返します。
-アクションの対応によってはサービスの実行状態を示す変数は変動します。
-後述のControlセクションではコントロールメッセージのフォーマット、状態変数、
+返り値をServiceが返します。
+アクションの対応によってはServiceの実行状態を示す変数は変動します。
+後述のControlセクションではコントロールメッセージのフォーマット、状態変数(state)、
 アクションの説明について述べます。 
   
 UPnPネットワーキングのStep4はEventingです。
   
-UPnP Descriptionは実行時のサービス状態を示す変数のリストと
-サービスが応答するアクションのリストを表示します。
-サービスはこの状態に関するアップデートをしControlPointは更新情報を自動で受信します。
-サービスはEvent Messageを送信する子でアップデート情報を配布します。
+UPnP Descriptionは実行時のService状態(state)を示す変数のリストと
+Serviceが応答するアクションのリストを表示します。
+Serviceはこの状態に関するアップデートをしControlPointは更新情報を自動で受信します。
+ServiceはEvent Messageを送信する子でアップデート情報を配布します。
 Event Messageは一つ以上のEvent変数の名前を保持しており、それらの現在の値を含んでいます。
 これらのメッセージはXMLによって伝送されます。
 特にControlPointが最初に情報を取得する際には特殊なEvent Messageが配布されます。
-このメッセージには全てのEvent名と値を含みサービス状態モデルの初期化をさせます。
+このメッセージには全てのEvent名と値を含みService状態モデルの初期化をさせます。
 複数のControl Pointをサポートするために、いかなるアクションに基づく影響について
 全てのControl Pointで統一した状態をキープするようにEventingは設計されて居ます。
 それゆえ、全てのEvent受信者はEvent変数についてのアップデートに関してもれなくEvent Messageを受信します。
-（それがたとえリクエストしたアクションのレスポンスだろうが、サービスモデルが変わろうが。）
+（それがたとえリクエストしたアクションのレスポンスだろうが、Serviceモデルが変わろうが。）
 マルチキャストEventingはEvent Messageを代表するものです。
-マルチキャストEventingを利用することでControlPointはサービスのアップデートを
+マルチキャストEventingを利用することでControlPointはServiceのアップデートを
 明示的なセッションの確立なしに受信することができるようになる。
 この方式のEventingはUPnP通信に限らず
 複数のControlPointに対して複数のユーザが存在する場合に
@@ -263,7 +263,7 @@ UDAにおいて仕様上記載のあった機能であっても今後は後方�
   
 - action
   
-サービスによって公開されたコマンドのことです。一つ以上の引数・帰り値があります。
+Serviceによって公開されたコマンドのことです。一つ以上の引数・帰り値があります。
 詳細は"Desciption"と"Control"の章を参照してください。
   
 - argument
@@ -273,8 +273,8 @@ actionのパラメタです。
 
 - control point
   
-control pointはデバイス・サービスのDescriptionを取得しactionをサービスに対して実施し
-サービスのstateをpollingし、サービスからEventを受信します。
+control pointはデバイス・ServiceのDescriptionを取得しactionをServiceに対して実施し
+Serviceのstateをpollingし、ServiceからEventを受信します。
   
 - device
   
@@ -300,7 +300,7 @@ UPnPベンダはdevice typeを拡張することができます。
   
 - event
   
-サービスによって公開されたstateが一つ上の変化をした際の通知です。
+Serviceによって公開されたstateが一つ上の変化をした際の通知です。
 詳細は"Eventing"の章を参照してください。
   
 - GENA
@@ -310,9 +310,25 @@ General Event Notification Architectureの略です。Eventの受信と通知に
   
 - publisher
   
-
-
-
+Eventの発信者です。大抵の場合はdevice serviceです。
+詳細は"Eventing"の章を参照してください。
+  
+- root device
+  
+内包されていない論理デバイスを指します。
+詳細は"Description"の章を参照してください。
+  
+- service
+  
+論理機能ユニットです。Controlの最小単位です。
+state変数を使って物理デバイスの状態やactionを提供します。
+  
+- service description
+  
+論理的なServiceの定義です。UPnP Template LanguageでXMLによって記述されます。
+UPnP Service Templateに基づいて、UPnPベンダによって情報は埋められます。
+  
+- 
 
 
 
