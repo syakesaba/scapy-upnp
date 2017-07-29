@@ -220,13 +220,24 @@ ControlPointはページの内容を取得できます。
   
 ***Audience***
   
-
-
-
-
-
-
-
+本文書の読者はUPnPデバイスやControlPointベンダ、UPnP Forum、UPnPプロトコルの技術情報を知る必要がある人です。
+本文書はHTTP/TCP/UDP/IPファミリープロトコルに対して一定の知見があることを想定しており
+本文書はそれらの技術に関してあえて説明をしません。
+また、本文書の大多数の読者はXMLに対して見識がないことを想定していますが
+本文書はXMLチュートリアルではないので、XMLに関する問題についてはUDAの中核にて解決することとします。
+本文書はプログラミング・スクリプティングに関して見識を持った読者を想定していません。
+  
+***Conformance Terminology***
+  
+本文書では、用語を以下のように定義します。
+  
+Required (or shall or mandatory).
+  
+　UDAに必要な基本的な実装です。以後、shall notやPROHIBITEDは禁止を意味します。
+  
+Recommended (or should).
+  
+　さ
 
 
 
