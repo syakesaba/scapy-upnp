@@ -210,6 +210,14 @@ UPnP Working CommitteeはEventがマルチキャストEventかどうかを定義
 後述のEventingセクションではユニキャストとマルチキャストの両方のEvent Messageの
 フォーマットについて述べます。
   
+UPnPネットワーキングのStep5はPresentationです。
+  
+もしデバイスがPresentaion用のURLを持って居た場合、そのURLをブラウザで開くことで
+ControlPointはページの内容を取得できます。
+そのページでは場合によってはユーザはデバイスをコントロールしたりデバイスのステータス情報を参照することができます。
+参照できる情報や操作できる情報の度合いについてはそのデバイスとデバイスの提示するページの内容に依存します。
+後述のPresentationセクションではPresentationページから情報を入手するプロトコルについて述べます。
+  
 ***Audience***
   
 
