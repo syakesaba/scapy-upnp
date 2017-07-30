@@ -355,4 +355,42 @@ Event Messaveの受信者です。通常はControlPointです。
   
 - UPnP Device Template
   
-
+device type, 内臓デバイス, 必要なServiceを定義したテンプレートです。
+UPnP Forum Workiing Commmitteeの策定したUPnP Device Schemaに基づいたXMLにて表記されます。
+Standard Device Typeと一対一関係にあります。
+詳細は"Description"の章を参照してください。
+  
+- UPnP Service Template
+  
+Action名とActionのパラメタ、state変数、それらの変数のプロパティを定義したテンプレートです。
+UPnP Forum Workiing Commmitteeの策定したUPnP Service Schemaに基づいたXMLにて表記されます。
+Standard Service Typeと一対一関係にあります。
+詳細は"Description"の章を参照してください。
+  
+- UPnP Device Schema
+  
+UPnP Device/Service Templateの要素を定義します。
+UPnP Device Architectureの策定したXML Schemaに基づいたXMLにて表記されます。
+詳細は"Description"の章を参照してください。
+  
+- Vendor Domain Name
+  
+ベンダ固有のドメイン名です。ベンダによって保持され
+ICANNによって公式認可された一意な登録名でなければなりません。
+ベンダはドメイン名を常に最新の状態に保持する必要があります。
+ドメイン名の長さはUDAによって定められたドメイン名の条件にマッチするように調整をすべきです。
+  
+- その他リファレンス
+  
+RFC 2710, Multicast Listener Discovery for IPv6. 
+Available at: [http://www.ietf.org/rfc/rfc2710.txt](http://www.ietf.org/rfc/rfc2710.txt)  
+RFC 2616, HTTP: Hypertext Transfer Protocol 1.1.
+Available at: [http://www.ietf.org/rfc/rfc2616.txt](http://www.ietf.org/rfc/rfc2616.txt)  
+RFC 2279, UTF-8, a transformation format of ISO 10646 (character encoding).
+Available at: [http://www.ietf.org/rfc/rfc2279.txt](http://www.ietf.org/rfc/rfc2279.txt)  
+XML, Extensible Markup Language. W3C recommendation.
+Available at: [http://www.w3.org/XML/](http://www.w3.org/XML/)  
+DEVICEPROTECTION, UPnP Device Protection specification.
+Available at [http://upnp.org/specs/gw/UPnP-gw-DeviceProtection-v1-Service.pdf](http://upnp.org/specs/gw/UPnP-gw-DeviceProtection-v1-Service.pdf)  
+  
+***0 Addressing***
