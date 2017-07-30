@@ -48,7 +48,7 @@ UPnPにおけるユニバーサルとは”デバイスドライバレス”と�
 UPnPネットワーキングはデバイスの仕様とは独立した実装です。
 UPnPデバイスはどのOSのどんなプログラミング言語によっても実装が可能です。
   
-*UPnPのアーキテクチャはアプリケーションのAPIデザインに関して指定や制約をしません。*
+**UPnPのアーキテクチャはアプリケーションのAPIデザインに関して指定や制約をしません。**
 OSベンダはエンドユーザの要望にあった形でAPIを作成すべきです。
   
 ***UPnP Forum***
@@ -73,10 +73,10 @@ UPnP Forumは各方面の専門分野にワーキングコミッティをおい�
 このドキュメントではそれらのワーキングコミッティ分野における技術的な見地について示します。
 UPnPベンダはUPnP Logo Programによってその技術的な適合性を発信することにより
 相互接続性に対する信頼を得ることができます。
-*このLogo Programに関わらず、ベンダはUDAに沿って
-形式張った標準的な認証申請なしにデバイスを開発することも可能です。
+**このLogo Programに関わらず、ベンダはUDAに沿って
+形式張った標準的な認証申請なしにデバイスを開発することも可能です。**
 もしベンダが非公式でUPnPデバイスを開発した場合はワーキングコミッティのやり方とは
-違った方式で技術的な実装をしていることになります。*
+違った方式で技術的な実装をしていることになります。
     
 ***In this document***
   
@@ -394,3 +394,47 @@ DEVICEPROTECTION, UPnP Device Protection specification.
 Available at [http://upnp.org/specs/gw/UPnP-gw-DeviceProtection-v1-Service.pdf](http://upnp.org/specs/gw/UPnP-gw-DeviceProtection-v1-Service.pdf)  
   
 ***0 Addressing***
+  
+AddressingはUPnPネットワーキングのStep0です。AddressingによりデバイスとControlPointは
+ネットワークアドレスを取得します。AddressingはStep1のDiscoveryを可能にし
+COntrol Pointがデバイスを探索することができます。Step2のDescriptionで
+デバイスの機能をControl Pointが学習し、Step3でControl Pointはデバイスに対して
+Commandを発行し、Step4でControl Pointはデバイスの状態変化をEventingによってリッスンし
+Step5のPresentationでControl PointはデバイスのUIを表示することができます。
+  
+UPnPネットワーキングの根幹はIPアドレッシングです。
+UPnPデバイスまたはControl PointはIPv4シングルスタックかIPv4/v6のデュアルスタックを
+サポートすることができます。本文書（以降の項1〜5）ではIPv4実装を想定します。
+本文書の付録にてIPv6の実装を補足します。
+  
+UPnPデバイスまたはControlPointは初回ネットワーク接続時は
+自身はDHCPサーバとしては動かずDHCPクライアントとしてDHCPサーバを探索すべきです。
+（もしDHCPサーバとして実装されている場合は自身の管理下のネットワークアドレスを
+　自身のアドレスプールの範囲内で取得することができます。）
+  
+もしネットワークでDHCPサーバが稼働している場合はDHCPサーバからアサインされた
+IPアドレスをデバイスは使用するべきです。
+もしネットワークでDHCPサーバが稼働していない場合はAuto-IPアルゴリズムによって
+取得したIPアドレスをデバイスは使用するべきです。
+  
+Auto-IP (RFC3927) はDHCPサーバが利用できない場合にリンクローカルIPアドレスの
+範囲の中から決められた手順でIPアドレスを取得する手段です。
+この技術によりデバイスがDHCP・非DHCPのネットワークを自由に往来することが可能となります。
+本章ではAuto-IPの基本的な挙動について述べます。本章で以下に述べる点に関しては
+詳細な情報がリファレンスドキュメントの方にも既に記載があります。
+基本的にはリファレンスドキュメントの内容が優先されます。
+  
+***0.1 Determing Whether to user Auto-IP***
+  
+Auto-IPをサポートしアドレスを自動取得する設定になっているデバイスは
+まずDHCPDISCOVERメッセージによりIPアドレスをリクエストの準備をします。
+この時一定時間デバイスはDHCPOFFERを待ちますが、**その時間は実装依存で不定です。**
+もしDHCPOFFERがその時間内に受け取れた場合はデバイスはそのままアドレス取得のプロセスに
+移行するべきです。もし有効なDHCPOFFERが受け取れなかった場合は
+デバイスはAuto-IPによって自動でIPアドレスを設定するべきです。
+  
+***0.2 Choosing an address***
+  
+
+
+
