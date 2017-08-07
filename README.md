@@ -564,5 +564,31 @@ DNS名で参照する他のデバイスとデバイスが通信をしようと�
 - RFC 2136, Dynamic Updates in the Domain Name System. Available at: http://www.ietf.org/rfc/rfc2136.txt.
 - RFC 3927, Dynamic Configuration of IPv4 Link-Local Addresses. Available at: http://www.ietf.org/rfc/rfc3927.txt.
 
-***1 Discovery**
+***1 Discovery***
   
+"Disovery"はUPnPネットワーキングのStep1です。
+DiscoveryはStep0(IPアドレッシング)でIPアドレスを取得した後にきます。
+Discoveryによってデバイスはデバイスを検索することができます。
+Discoveryはデバイスの機能性について調べるDescription(Step2)を可能にし
+デバイスに対してコマンドを送ることができるControl(Step3)を可能にし
+デバイスの状態変化を検知することができるEventing(Step4)を可能にし
+デバイスのユーザーインターフェースを表示するPresentation(Step5)を可能にします。
+  
+DiscoveryはUPnPネットワーキングの最初のステップです。
+デバイスがネットワークに追加された時、そのデバイスはServiceの広告を
+そのネットワークに存在するデバイスに実施することができます。
+同時にデバイスがネットワークに追加された場合、デバイスは同じネットワークに
+存在するデバイスを探索することができます。
+基本的に両方のケースにおいて交換されるMessageは
+デバイスの代表的なサービスであったり、UUIDであったり
+より詳細な情報を取得するためのポインタ情報であったり
+デバイスの現在の実行状態のoptionalなパラメタだったり
+最小限な情報のみとなります。
+  
+<TODO: Figure 1-1: - Discovery architectureの図をはる。だいたいわかるけど。>
+  
+もしデバイスが自分自身が新しいネットワークに追加された場合
+DisoveryMessageを発信し、自身の持つ内臓デバイス及びServiceについて
+数回マルチキャストで広告すべきです(初回広告)。
+
+
