@@ -384,16 +384,11 @@ ICANNによって公式認可された一意な登録名でなければなりま
   
 - その他リファレンス
   
-RFC 2710, Multicast Listener Discovery for IPv6. 
-Available at: [http://www.ietf.org/rfc/rfc2710.txt](http://www.ietf.org/rfc/rfc2710.txt)  
-RFC 2616, HTTP: Hypertext Transfer Protocol 1.1.
-Available at: [http://www.ietf.org/rfc/rfc2616.txt](http://www.ietf.org/rfc/rfc2616.txt)  
-RFC 2279, UTF-8, a transformation format of ISO 10646 (character encoding).
-Available at: [http://www.ietf.org/rfc/rfc2279.txt](http://www.ietf.org/rfc/rfc2279.txt)  
-XML, Extensible Markup Language. W3C recommendation.
-Available at: [http://www.w3.org/XML/](http://www.w3.org/XML/)  
-DEVICEPROTECTION, UPnP Device Protection specification.
-Available at [http://upnp.org/specs/gw/UPnP-gw-DeviceProtection-v1-Service.pdf](http://upnp.org/specs/gw/UPnP-gw-DeviceProtection-v1-Service.pdf)  
+- RFC 2710, Multicast Listener Discovery for IPv6. Available at: [http://www.ietf.org/rfc/rfc2710.txt](http://www.ietf.org/rfc/rfc2710.txt)  
+- RFC 2616, HTTP: Hypertext Transfer Protocol 1.1. Available at: [http://www.ietf.org/rfc/rfc2616.txt](http://www.ietf.org/rfc/rfc2616.txt)  
+- RFC 2279, UTF-8, a transformation format of ISO 10646 (character encoding). Available at: [http://www.ietf.org/rfc/rfc2279.txt](http://www.ietf.org/rfc/rfc2279.txt)  
+- XML, Extensible Markup Language. W3C recommendation. Available at: [http://www.w3.org/XML/](http://www.w3.org/XML/)  
+- DEVICEPROTECTION, UPnP Device Protection specification. Available at [http://upnp.org/specs/gw/UPnP-gw-DeviceProtection-v1-Service.pdf](http://upnp.org/specs/gw/UPnP-gw-DeviceProtection-v1-Service.pdf)  
   
 ***0 Addressing***
   
@@ -550,7 +545,24 @@ IPアドレスの変動に関して何も意識する必要がありません。
 直接DNSレコードを追加することができますし、DHCPサーバに対してDHCPクライアントの
 挙動をベースにDNSレコード登録させるように設定をすることも可能です。
   
-*** 0.7 Name to IP address resolution ***
+***0.7 Name to IP address resolution***
   
+DNS名で参照する他のデバイスとデバイスが通信をしようとした場合は
+そのIPアドレスを見つける必要があります。
+デバイスはRFC1034とRFC1035にもとづいて事前に設定されたDNSサーバから
+そのDNS名に紐づいたIPアドレスを取得します。
+デバイスはDNSサーバのリストを固定で事前に設定することができます。
+または、デバイスはDHCPOFFERを受けた際
+（もしくはDHCPOFFERを受けた後もDHCPINFORMを受けることにより）
+動的にDNSサーバのリストをDHCPサーバから取得するように設定することも可能です。
+  
+***0.8 References***
+  
+- RFC1034, Domain Names - Concepts and Facilities. Available at: [http://www.ietf.org/rfc/rfc1034.txt](http://www.ietf.org/rfc/rfc1034.txt)
+- RFC1035, Domain Names - Implementation and Specification. Available at: [http://www.ietf.org/rfc/rfc1035.txt](http://www.ietf.org/rfc/rfc1035.txt)
+- RFC 2131, Dynamic Host Configuration Protocol. Available at: http://www.ietf.org/rfc/rfc2131.txt.
+- RFC 2136, Dynamic Updates in the Domain Name System. Available at: http://www.ietf.org/rfc/rfc2136.txt.
+- RFC 3927, Dynamic Configuration of IPv4 Link-Local Addresses. Available at: http://www.ietf.org/rfc/rfc3927.txt.
 
-
+***1 Discovery**
+  
