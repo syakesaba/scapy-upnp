@@ -1,8 +1,10 @@
 UPnP Device Architecture 2.0
 ===================
-原文: [http://upnp.org/specs/arch/UPnP-arch-DeviceArchitecture-v2.0.pdf](http://upnp.org/specs/arch/UPnP-arch-DeviceArchitecture-v2.0.pdf)  
-本翻訳文は私の私的な目的で記載しております。本翻訳文を利用したことによる一切の責任は利用者にあります。 
+原文: [http://upnp.org/specs/arch/UPnP-arch-DeviceArchitecture-v2.0.pdf](http://upnp.org/specs/arch/UPnP-arch-DeviceArchitecture-v2.0.pdf)
+本翻訳文は私の私的な目的で記載しております。本翻訳文を利用したことによる一切の責任は利用者にあります。
 本翻訳文はコピーレフトですが、原文はUPnP Forumが著作権を持ちますので、流布に関しては原文の定める規定に従ってください。
+原文にはdeviceやcontrol pointと言った、クライアント・サーバ的な意味合いのワードが散見されますが
+その違いを日本語にする過程で明確にするとややこしいので両方”デバイス”で統一しています。  
   
 Introduction
 ===================
@@ -616,6 +618,24 @@ DisoveryMessageを発信し、自身の持つ内臓デバイス及びServiceに�
 全てのデバイスはリッスンしているポートでユニキャストで届いたディスカバリMessageについて
 その検索範囲に含まれている場合はそのMessageに応答すべきです。
   
+マルチホームデバイスはUPnPが有効な複数のインターフェースのうち一つ以上の
+インターフェースからマルチキャストディスカバリMessageを出すことが許されます。
+マルチホームデバイスは全てのUPnPが有効なインターフェースで通常の
+マルチキャストアドレスでマルチキャストディスカバリMessageをリッスンすべきです。
+マルチホームデバイスは1900番ポート（またはSEARCHPORT.UPNP.ORGヘッダにより指定されたポート）にて
+ユニキャストディスカバリMessageをリッスンすべきです。
+  
+基本的にデバイス・rootデバイス・内臓デバイス・サービスは
+ディスカバリMessageの検索範囲に存在する限り応答を返すべきです。
+  
+繰り返しになりますが、デバイスはディスカバリMessageを放出しているデバイスや
+デバイス検索のためのディスカバリMessageに応答したデバイスを記憶することが許されます。
+いずれの場合のケースであっても、デバイスがより多くの情報を他のデバイスから入手するには
+"Description"クエリMessageを送る必要があります。
+Descriptionの章ではDescription Messageについて詳しく述べます。
+  
+
+
 
 
 
