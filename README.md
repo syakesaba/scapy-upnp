@@ -1,8 +1,10 @@
 UPnP Device Architecture 2.0
 ===================
-原文: [http://upnp.org/specs/arch/UPnP-arch-DeviceArchitecture-v2.0.pdf](http://upnp.org/specs/arch/UPnP-arch-DeviceArchitecture-v2.0.pdf)
-本翻訳文は私の私的な目的で記載しております。本翻訳文を利用したことによる一切の責任は利用者にあります。
-本翻訳文はコピーレフトですが、原文はUPnP Forumが著作権を持ちますので、流布に関しては原文の定める規定に従ってください。
+原文: [http://upnp.org/specs/arch/UPnP-arch-DeviceArchitecture-v2.0.pdf](http://upnp.org/specs/arch/UPnP-arch-DeviceArchitecture-v2.0.pdf)  
+  
+本翻訳文は私的な目的で記載しております。
+本翻訳文を利用したことによる一切の責任は利用者にあります。
+原文はUPnP Forumが著作権を持ちますので流布に関しては原文の定める規定に従ってください。
 原文にはdeviceやcontrol pointと言った、クライアント・サーバ的な意味合いのワードが散見されますが
 その違いを日本語にする過程で明確にするとややこしいので両方”デバイス”で統一しています。  
   
