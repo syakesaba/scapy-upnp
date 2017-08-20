@@ -722,8 +722,30 @@ Start-lineはRFC2616の章5.1と章6.1に記載されています。
   
 ***1.1.2 SSDP header fields***
   
-
-
-
+SSDPMessageのヘッダフィールドはRFC2616の章4.2に従って
+大文字小文字の区別のないHeaderフィールドと大文字小文字の区別があるValueフィールドが
+コロン（:）によって分けられて記述されています。SSDPの場合は使えるValueフィールドを制限しています。
+  
+SSDP Headerの例  
+HOST: 239.255.255.250:1900
+  
+***1.1.3 SSDP header field extensions***
+  
+UPnP Working committeeとUPnPベンダはSSDPMessageに任意のSSDPヘッダを追加することができます。
+また、UPnP Forum Technical committeeが独自に定義しているヘッダも使うことができます。
+(e.g. 章1.2"Advertisement"で定義された BOOTID.UPNP.ORG , CONFIGD.UPNP.ORG , NEXTBOOTID.UPNP.ORG , SEARCHPORT.UPNP.ORG ヘッダ)
+ヘッダフィールドの名前衝突を防ぐため、ベンダは以下のフォーマットでベンダ固有の
+ヘッダを定義することが可能です。
+  
+ field-name = token “.” domain-name  
+  
+domain-nameはVendor Domain Nameとすべきです。利用可能な非メタ文字情報に関してはRFC2616の
+章2.2を確認してください。ベンダ固有のSSDPヘッダの例を以下に示します。
+  
+ myheader.philips.com: “some value”
+ myheader.sony.com: “other value”
+  
+***1.1.4 UUID format and recommended generation algorithms***
+  
 
 
