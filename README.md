@@ -716,6 +716,12 @@ Start-lineはRFC2616の章5.1と章6.1に記載されています。
 - M-SEARCH * HTTP/1.1\r\n
 - HTTP/1.1 200 OK\r\n
   
+ここで明らかにしておきたいのは、Start-lineの"HTTP/1.1"はSSDPが完全にHTTP1.1を
+ベースに作成されているという訳ではないということです。あくまでこのStart-lineは
+後方互換性のためだけに存在します。
+  
+***1.1.2 SSDP header fields***
+  
 
 
 
