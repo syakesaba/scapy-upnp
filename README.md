@@ -742,10 +742,35 @@ UPnP Working committeeとUPnPベンダはSSDPMessageに任意のSSDPヘッダを
 domain-nameはVendor Domain Nameとすべきです。利用可能な非メタ文字情報に関してはRFC2616の
 章2.2を確認してください。ベンダ固有のSSDPヘッダの例を以下に示します。
   
- myheader.philips.com: “some value”
+ myheader.philips.com: “some value”  
  myheader.sony.com: “other value”
   
 ***1.1.4 UUID format and recommended generation algorithms***
   
-
+UPnP 2.0のデバイスはUUIDを以下のフォーマットに従って実装すべきです。
+しかし、UPnP2.0デバイスはUPnP1.0形式のフォーマットで記述されたUUIDも受け入れるように実装するべきです。
+  
+UUIDは128bitの数字によって定義されます。
+  
+ UUID = 4 * <hexOctet> “-” 2 * <hexOctet> “-” 2 * <hexOctet> “-” 2 * <hexOctet> “-” 6 * <hexOctet>  
+ hexOctet = <hexDigit> <hexDigit>  
+ hexDigit = “0”|“1”|“2”|“3”|“4”|“5”|“6”|“7”|“8”|“9”|“a”|“b”|“c”|“d”|“e”|“f”|“A”|“B”|“C”|“D”|“E”|“F”  
+  
+以下は128bitのUUIDの例です。
+  
+ “2fac1234-31f8-11b4-a222-08002b34c003”  
+  
+UUIDは以下の条件を満たすならばどのような公式で生成しても構いません。
+  
+ a) 別のUUIDと滅多に被らない公式であること
+ b) 必ず128bitの数字に落とし込める公式であること
+ c) 時間によってUUIDが変わらず一意であること
+  
+また、以下の時間・MACベースのアルゴリズムで生成したUUIDを
+不揮発メモリに焼き付ける手法が推奨されています。
+  
+[http://www.opengroup.org/onlinepubs/9629399/apdxa.htm](http://www.opengroup.org/onlinepubs/9629399/apdxa.htm)
+  
+***1.1.5 SSDP processing rules***
+  
 
