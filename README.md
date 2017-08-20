@@ -696,5 +696,28 @@ UPnPにおける探索プロトコルについて述べます。
   
 ***1.1 SSDP message format***
   
+SSDPはRFC2616で記載されたHTTP1.1をヘッダのフォーマットとして一部使用しています。
+いかし、それはHTTP1.1を完全にベースにしているのではなく、TCPではなくUDPを使ってますし
+独自の処理規則を持っています。章1.1.xではSSDPMessageの一般的なフォーマットについて述べます
+
+全てのSSDPMessageはRFC2616の"generic message"（章4.1）に基づいてフォーマットされているべきです。
+SSDPMessageはstart-lineと数個のヘッダフィールドを持ちます。
+SSDP Messageはbody部分を持つべきではありません。もしSSDPMessageでbody部が入っているものを
+受信した場合、デバイスはそのbody部分を無視して構いません。
+  
+***1.1.1 SSDP Start-line***
+  
+それぞれのSSDPMessageはたった一つのStart-lineを持ちます。章1.2"Advertisement"及び
+章1.3"Search"の中に記載されたフォーマットがSSDPMessageの全てです。
+Start-lineはRFC2616の章5.1と章6.1に記載されています。
+さらに言えば、Start-lineは以下の3つの内のどれかであるべきです。
+  
+- NOTIFY * HTTP/1.1\r\n
+- M-SEARCH * HTTP/1.1\r\n
+- HTTP/1.1 200 OK\r\n
+  
+
+
+
 
 
