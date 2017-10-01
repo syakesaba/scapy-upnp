@@ -824,10 +824,16 @@ SEARCHPORT.UPNP.ORGヘッダの値はデバイスがユニキャストでM-SEARC
   
 ***1.2.1 Advertisement protocols and standards***
   
-
-
-
-
+広告を送るために、デバイスは以下に示すUPnPのプロトコルセットを全て使用します。
+（これらのUPnPプロトコルスタックはこのドキュメント最初にリストされています。）
+  
+  <TODO: Figure 1-2: — Advertisement protocol stack の写真をはる>
+  
+高レイヤー層はディスカバリメッセージがベンダ固有の情報
+（e.g. デバイスのDescriptionのURLやデバイス識別子）を含んでいます。
+スタックの下の方ではUPnP Forum working committeeによって策定された
+ベンダコンテンツの情報が供給されます（e.g. debvice type）。
+このレイヤからのMessageには
 
 
 
