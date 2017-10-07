@@ -833,10 +833,12 @@ SEARCHPORT.UPNP.ORGヘッダの値はデバイスがユニキャストでM-SEARC
 （e.g. デバイスのDescriptionのURLやデバイス識別子）を含んでいます。
 スタックの下の方ではUPnP Forum working committeeによって策定された
 ベンダコンテンツの情報が供給されます（e.g. debvice type）。
-このレイヤからのMessageには
-
-
-
+このレイヤの上位にあるメッセージはUPnP固有のプロトコルで策定されこのドキュメントに定義されています。
+順番に、SSDPメッセージはUDP over IPによって伝送されます。
+参考のため、[]に囲まれた色は下記のディスカバリメッセージのどのプロトコルで特定のヘッダ・値が定義されているかを示します。
+  
+***1.2.2 Device available - NOTIFY with ssdp:alive***
+  
 
 
 
