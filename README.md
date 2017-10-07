@@ -839,9 +839,22 @@ SEARCHPORT.UPNP.ORGヘッダの値はデバイスがユニキャストでM-SEARC
   
 ***1.2.2 Device available - NOTIFY with ssdp:alive***
   
-
-
-
+デバイスがネットワークに追加された際、サービス・内蔵デバイス・ルートデバイスを広告する
+マルチキャストディスカバリメッセージを送るべきです。
+それらのディスカバリメッセージは4つの主要なコンポーネントを含めるべきです。
+  
+a) notification type (e.g. device type)：_NT_ (Notification Type)ヘッダによって送信されます。
+  
+b) composite identifier：USN (Unique Service Name)ヘッダによって送信されます。
+  
+c) デバイス(サービス)に関する詳細な情報を入手するURL：LOCATIONヘッダによって送信されます。
+  
+d) 広告キャッシュの有効期限：CACHE-CONTROLヘッダによって送信されます。
+  
+各機能に関して広告するためデバイスは多くのディスカバリメッセージをマルチキャストします。
+特に、ルートデバイスは以下の項目をマルチキャストすべきです。
+  
+- ルートデバイスによるディスカバリメッセージ
 
 
 
