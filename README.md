@@ -915,10 +915,10 @@ d) 広告キャッシュの有効期限：CACHE-CONTROLヘッダによって送�
 最初の図はデバイスがネットワークに初回接続しており初回広告をし、その後一定の間隔で更新広告をしていることを示しております。（広告間隔を引き伸ばさないケース）
 二つ目の図はデバイスが広告間隔を引き伸ばすケースです。
   
- <Figure 1-3: — Initial and repeat announcements, no announcement spreadingの図を貼る>
-  
- <Figure 1-4: — Initial and repeat announcements, message spreading of repeat announcements の図を貼る>
-  
+ ＜Figure 1-3: — Initial and repeat announcements, no announcement spreadingの図を貼る＞
+   
+ ＜Figure 1-4: — Initial and repeat announcements, message spreading of repeat announcements の図を貼る＞
+   
 デバイスは（ある意味ネットワークストームのような）初回広告を送信する前にランダムなインターバルで（例えば0～100msで）待つべきです。
 ※このランダムなインターバルはデバイスが新しいIPを取得する際や新しいUPnPインターフェースをインストールした際にも適用されるべきです。
   
@@ -932,6 +932,32 @@ d) 広告キャッシュの有効期限：CACHE-CONTROLヘッダによって送�
 *UDPは（ある実装においては概ね512KByteくらい小さい）その長さによって分割されることにご注意ください。各メッセージは一つのUDPパケットの中に収まるべきです。*
 3+2d+kのディスカバリメッセージが特定の順番で来る保証はどこにもありません。
   
+マルチホームデバイスはそれぞれのUPnPが有効なインターフェースで上述の広告処理を実施スべきです。
+それぞれのUPnPが有効なインターフェースで送信される広告はHOST,CACHE-CONTROL,LOCATIONヘッダを除き全て同じ値が含まれるべきです。
+広告のHOSTヘッダフィールドの値は特定のIPプロトコル(IPv4,IPv6)インターフェースで使用される標準のマルチキャストアドレスにすべきです。
+LOCATIONヘッダフィールドの値に記載されたURLは広告が送信されるインターフェースにリーチャビリティがあるべきです。
+最後に、異なるインターフェースから送信される広告に関しては異なるCACHE-CONTROLヘッダの値を取ることが許され、つまりはそれぞれ異なる周期で広告することが許されます。
+  
+デバイスがネットワークに追加された際は以下のフォーマットに示すような
+NOTIFYメソッドとNTSヘッダにssdp:aliveを持ったマルチキャストメッセージをデバイスは送信すべきです。
+
+```
+NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age = _<seconds until advertisement expires>
+LOCATION: <URL for UPnP description for root device>
+NT: <notification type>
+NTS: ssdp:alive
+SERVER: <OS/version UPnP/2.0 product/version>
+USN: <composite identifier for the advertisement>
+BOOTID.UPNP.ORG: <number increased each time device sends an initial announce or an update message>
+CONFIGID.UPNP.ORG: <number used for caching description information>
+SEARCHPORT.UPNP.ORG: <number identifies port on which device responds to unicast M-SEARCH>
+```
+  
+※NOTIFYメソッドのメッセージにはbodyデータはありません。しかし、メッセージは最終行が空行のヘッダフィールドをもつべきです。
+  
+IPパケットのTTLは標準2ですが、自由に設定できるようにすべきです。
 
 
 
