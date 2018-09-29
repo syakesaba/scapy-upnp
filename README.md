@@ -864,9 +864,8 @@ d) 広告キャッシュの有効期限：CACHE-CONTROLヘッダによって送�
   
 - それぞれのデバイスごとのそれぞれのサービスタイプ
   
-  <Table 1-3 — Service discovery messagesの写真をはる>
+  <Table 1-3 — Service discovery messagesの写真をはる>  
   
-
 
 もしルートデバイスが内蔵デバイス"d"を持ち内蔵サービス"s"を持ち
 一つだけ"k"という固有のサービスがを持っていた場合
@@ -958,6 +957,47 @@ SEARCHPORT.UPNP.ORG: <number identifies port on which device responds to unicast
 ※NOTIFYメソッドのメッセージにはbodyデータはありません。しかし、メッセージは最終行が空行のヘッダフィールドをもつべきです。
   
 IPパケットのTTLは標準2ですが、自由に設定できるようにすべきです。
+以下のリストは上述のリクエストラインとヘッダリールドに関する詳細となります。
+フィールド名はケースセンシティブではありません。全てのフィールド値は特に指定が無ければ全てケースセンシティブです。
 
+*Request line*  
+Shall be "NOTIFY * HTTP/1.1"  
+
+- NOTIFY  
+  イベント及び通達を送るメソッド
+- \*  
+  メッセージ共通。リソースの指定は無いことを示すため\*にすべきです。
+- HTTP/1.1  
+  HTTPバージョン。  
+
+*Header fields*
+  
+- HOST  
+  
+必須。Internet Assigned Numbers Authority(IANA)によって予約されたSSDPのポートとマルチキャストアドレスが含まれる。
+239.255.255.250:1900にすべきです。もしポート番号(":1900")が省略された場合
+受信者側はデフォルトのSSDP通信ポートである1900であると暗黙的に推測すべきです。
+  
+- CACHE-CONTROL  
+  
+必須。フィールド値にInteger秒でその広告が有効期間を示すmax-ageディレクティブ("max-age=")が含まれているべきです。
+この期間が終わった時、デバイスはそのデバイス（またはサービス）がもう利用できないことを認識すべきです。
+その期間の間にデバイスが、あるサービスや埋め込みデバイス及びそのデバイスのサービスについて、
+もしくはそれらのrootデバイスについて、広告を受け取った場合についてはデバイスは
+そのデバイスの関連全てについてもまだ有効であると推測できます。
+有効期間の値については上述に定義したような例外もあれど1800秒（30分）以上にすべきです。
+実際にはUPnPベンダによって定義されます。max-age以外のディレクティブは含まれるべきではなく受信しても無視されるべきです。
+  
+- LOCATION  
+  
+必須。root deviceの持つUPnP descriptionへのURLが含まれます。
+通常は管理されていないネットワークにおける名前解決よりもIPアドレスの文字列がhostとして支持されます。
+実際にはUPnPベンダによって定義されます。RFC3986におけるSingle absolute URLとなります。
+  
+- NT  
+  
+必須。フィールド値はNotification Typeが含まれるべきです。それらは以下の内の一つであるべきです。
+（Table 1-1."Root device discovery messages", Table 1-2."Embedded device discovery messages",
+ Table 1-3."Service discovery messages"を参照）Single URIとなります。
 
 
