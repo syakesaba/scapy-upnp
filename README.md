@@ -1017,9 +1017,12 @@ __urn:domain-name:device:deviceType:ver__
 __urn:domain-name:service:serviceType:ver__  
     各デバイスに一度だけ送信されます。domain-nameはVendor Domain Nameであり、serviceTypeとverはUPnPベンダによって定義されます。  
     verはデバイスタイプのバージョンを示します。__Vendor Domain Nameに含まれるピリオド文字はRFC22141に従ってハイフンに変換されるべきです。  
-__NTS__  
-    必須。フィールド値にはNotification Sub Typeが含まれます。概ね"ssdp:alive"になります。Single URIです。  
+- NTS
+    必須。フィールド値にはNotification Sub Typeが含まれます。概ね"ssdp:alive"になります。Single URIです。
 
 - SERVER
     必須。UPnPベンダによって指定されます。フィールド値はHTTP/1.1で定義された"product tokens"で始まるべきです。
+    
+- USN
+    必須。フィールド値は一意のServiceNameを持ちます。デバイスやサービズの実態を一意に特定します。
     
