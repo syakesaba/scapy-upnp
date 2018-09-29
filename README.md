@@ -999,26 +999,20 @@ Shall be "NOTIFY * HTTP/1.1"
 必須。フィールド値はNotification Typeが含まれるべきです。それらは以下の内の一つであるべきです。
 （Table 1-1."Root device discovery messages", Table 1-2."Embedded device discovery messages",
  Table 1-3."Service discovery messages"を参照）Single URIとなります。
-
     - upnp:rootdevice
         rootデバイスに一度だけ送信されます
-
     - uuid:device-UUID
         各デバイスに一度だけ送信されます。device-UUIDはUPnPベンダによって指定されます。
         UUIDの必須フォーマットは章1.1.4 "UUID format and recommended generation algorithms" を参照。
-
     - urn:schemas-upnp-org:device:deviceType:ver
         各デバイスに一度だけ送信されます。deviceTypeとverはUPnP Forum working committeeにて定義されます。
         verはデバイスタイプのバージョンを示します。
-
     - urn:schemas-upnp-org:service:serviceType:ver
         各デバイスに一度だけ送信されます。deviceTypeとverはUPnP Forum working committeeにて定義されます。
         verはデバイスタイプのバージョンを示します。
-
     - urn:domain-name:device:deviceType:ver
         各デバイスに一度だけ送信されます。domain-nameはVendor Domain Nameであり、deviceTypeとverはUPnPベンダによって定義されます。
         verはデバイスタイプのバージョンを示します。__Vendor Domain Nameに含まれるピリオド文字はRFC22141に従ってハイフンに変換されるべきです。
-
     - urn:domain-name:service:serviceType:ver
         各デバイスに一度だけ送信されます。domain-nameはVendor Domain Nameであり、serviceTypeとverはUPnPベンダによって定義されます。
         verはデバイスタイプのバージョンを示します。__Vendor Domain Nameに含まれるピリオド文字はRFC22141に従ってハイフンに変換されるべきです。
