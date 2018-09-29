@@ -1000,24 +1000,24 @@ Shall be "NOTIFY * HTTP/1.1"
 （Table 1-1."Root device discovery messages", Table 1-2."Embedded device discovery messages",
  Table 1-3."Service discovery messages"を参照）Single URIとなります。
 
-upnp:rootdevice  
+__upnp:rootdevice__  
     rootデバイスに一度だけ送信されます  
-uuid:device-UUID  
+__uuid:device-UUID__  
     各デバイスに一度だけ送信されます。device-UUIDはUPnPベンダによって指定されます。  
     UUIDの必須フォーマットは章1.1.4 "UUID format and recommended generation algorithms" を参照。  
-urn:schemas-upnp-org:device:deviceType:ver  
+__urn:schemas-upnp-org:device:deviceType:ver__  
     各デバイスに一度だけ送信されます。deviceTypeとverはUPnP Forum working committeeにて定義されます。  
     verはデバイスタイプのバージョンを示します。
-urn:schemas-upnp-org:service:serviceType:ver  
+__urn:schemas-upnp-org:service:serviceType:ver__  
     各デバイスに一度だけ送信されます。deviceTypeとverはUPnP Forum working committeeにて定義されます。  
     verはデバイスタイプのバージョンを示します。  
-urn:domain-name:device:deviceType:ver  
+__urn:domain-name:device:deviceType:ver__  
     各デバイスに一度だけ送信されます。domain-nameはVendor Domain Nameであり、deviceTypeとverはUPnPベンダによって定義されます。  
     verはデバイスタイプのバージョンを示します。__Vendor Domain Nameに含まれるピリオド文字はRFC22141に従ってハイフンに変換されるべきです。  
-urn:domain-name:service:serviceType:ver  
+__urn:domain-name:service:serviceType:ver__  
     各デバイスに一度だけ送信されます。domain-nameはVendor Domain Nameであり、serviceTypeとverはUPnPベンダによって定義されます。  
     verはデバイスタイプのバージョンを示します。__Vendor Domain Nameに含まれるピリオド文字はRFC22141に従ってハイフンに変換されるべきです。  
-NTS  
+__NTS__  
     必須。フィールド値にはNotification Sub Typeが含まれます。概ね"ssdp:alive"になります。Single URIです。  
 
 - SERVER
